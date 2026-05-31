@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentalis | Fórum de Apoio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">Mentalis<span>.</span></a>
+            <input type="checkbox" id="menu-controle" class="menu-checkbox">
+            <label for="menu-controle" class="menu-toggle" aria-label="Abrir Menu">☰</label>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="servicos.html" class="nav-link">Áreas de Apoio</a>
+                <a href="caps.html" class="nav-link">Guia CAPS</a>
+                <a href="sobre.html" class="nav-link">Nossa Equipe</a>
+                <a href="forum.html" class="nav-link active">Fórum</a>
+                <a href="atividades.html" class="nav-link">Atividades</a>
+                <a href="emergencia.html" class="btn-nav">Ajuda Imediata</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo-principal">
+        <section class="internal-hero">
+            <div class="container">
+                <h1>Fórum de Apoio Anônimo</h1>
+                <p>Espaço seguro para relatos anônimos e orientações psicológicas credenciadas. Profissionais informam o CRF antes de publicar uma orientação.</p>
+            </div>
+        </section>
+
+        <section class="section-padding forum-section">
+            <div class="container forum-grid">
+                <div class="forum-panel">
+                    <div class="card-header">
+                        <span class="badge">Anônimo</span>
+                        <h2>Publicar um relato</h2>
+                        <p>Compartilhe o que está passando de forma anônima. Isso ajuda profissionais a orientar com mais precisão.</p>
+                    </div>
+                    <form id="anonymous-post-form" class="forum-form">
+                        <div class="form-group">
+                            <label for="nome-post">Identificação (opcional)</label>
+                            <input type="text" id="nome-post" name="nome" placeholder="Ex: Usuário anônimo" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem-post">Relato</label>
+                            <textarea id="mensagem-post" name="mensagem" rows="5" placeholder="Descreva como tem se sentido..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar relato</button>
+                    </form>
+                </div>
+
+                <div class="forum-panel alt-bg">
+                    <div class="card-header">
+                        <span class="badge">Profissional</span>
+                        <h2>Publicar orientação</h2>
+                        <p>Somente psicólogos credenciados podem adicionar orientações. Informe seu CRF para validar a publicação.</p>
+                    </div>
+                    <form id="professional-response-form" class="forum-form">
+                        <div class="form-group">
+                            <label for="response-post">Responder ao relato</label>
+                            <select id="response-post">
+                                <option value="post-1">"Estou muito ansioso à noite e não consigo relaxar"</option>
+                                <option value="post-2">"Tenho medo de sair de casa depois da última crise"</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="response-crf">CRF do Psicólogo</label>
+                            <input type="text" id="response-crf" name="crf" placeholder="Ex: CRF-08/12345" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="response-text">Orientação</label>
+                            <textarea id="response-text" name="response" rows="5" placeholder="Digite sua orientação profissional..." required></textarea>
+                        </div>
+                        <p class="form-alert" id="response-alert" aria-live="polite"></p>
+                        <button type="submit" class="btn btn-primary">Publicar orientação</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="card-header">
+                    <h2>Conversa em andamento</h2>
+                    <p>Exemplos ilustrativos de relatos já publicados e orientações enviadas por psicólogos credenciados.</p>
+                </div>
+                <div id="forum-posts" class="forum-posts">
+                    <article class="forum-post" id="post-1">
+                        <div class="post-header">
+                            <div>
+                                <span class="status-pill">Anônimo</span>
+                                <h3>Estou muito ansioso à noite e não consigo relaxar.</h3>
+                            </div>
+                            <span class="post-time">Há 2 horas</span>
+                        </div>
+                        <p>Tenho dificuldades para desligar os pensamentos antes de dormir, o coração acelera, e isso está afetando minha rotina no trabalho. Não sei como pedir ajuda.</p>
+                        <div class="response-list">
+                            <div class="response-card">
+                                <div class="response-meta">
+                                    <span>Psicóloga credenciada</span>
+                                    <span>CRF-08/12345</span>
+                                </div>
+                                <p>Respire devagar e estabeleça um ritual noturno pequeno: desligue dispositivos 30 minutos antes, mantenha o ambiente escuro e anote três coisas que agradecer do dia. Se persistir, busque um atendimento gratuito de CAPS próximo.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="forum-post" id="post-2">
+                        <div class="post-header">
+                            <div>
+                                <span class="status-pill">Anônimo</span>
+                                <h3>Tenho medo de sair de casa depois da última crise.</h3>
+                            </div>
+                            <span class="post-time">Ontem</span>
+                        </div>
+                        <p>Depois de um episódio de pânico, evito sair e sinto que isso está isolando minha vida social. Quero voltar a ter rotina, mas não sei por onde começar.</p>
+                        <div class="response-list">
+                            <div class="response-card">
+                                <div class="response-meta">
+                                    <span>Psicólogo credenciado</span>
+                                    <span>CRF-12/54321</span>
+                                </div>
+                                <p>Comece com passos muito pequenos: sair por alguns minutos para o jardim, depois ir a uma padaria próxima. Registre sensações e comemore cada avanço. Em seguida, procure apoio psicológico para trabalhar o gatilho do medo.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>Espaço Acolher</h3>
+                <p>Projeto acadêmico focado em utilidade pública, saúde coletiva e inclusão digital por meio de código acessível.</p>
+            </div>
+            <div>
+                <h3>Links Úteis</h3>
+                <nav aria-label="Links do Rodapé">
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Áreas de Apoio</a></li>
+                        <li><a href="caps.html">Guia CAPS</a></li>
+                        <li><a href="sobre.html">Nossa Equipe</a></li>
+                        <li><a href="forum.html">Fórum</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Agência Mentalis. Todos os direitos reservados. Feito com fins educacionais.</p>
+        </div>
+    </footer>
+
+    <div class="page-glow"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const forumPosts = document.getElementById('forum-posts');
+            const anonymousForm = document.getElementById('anonymous-post-form');
+            const responseForm = document.getElementById('professional-response-form');
+            const responseAlert = document.getElementById('response-alert');
+            const responsePost = document.getElementById('response-post');
+
+            anonymousForm.addEventListener('submit', event => {
+                event.preventDefault();
+                const name = document.getElementById('nome-post').value.trim() || 'Anônimo';
+                const message = document.getElementById('mensagem-post').value.trim();
+                if (!message) return;
+
+                const postId = `post-${Date.now()}`;
+                const article = document.createElement('article');
+                article.className = 'forum-post';
+                article.id = postId;
+                article.innerHTML = `
+                    <div class="post-header">
+                        <div>
+                            <span class="status-pill">${name}</span>
+                            <h3>${message.substring(0, 60)}${message.length > 60 ? '...' : ''}</h3>
+                        </div>
+                        <span class="post-time">Agora</span>
+                    </div>
+                    <p>${message}</p>
+                    <div class="response-list"></div>
+                `;
+                forumPosts.prepend(article);
+
+                const option = document.createElement('option');
+                option.value = postId;
+                option.textContent = message.substring(0, 60) + (message.length > 60 ? '...' : '');
+                responsePost.appendChild(option);
+
+                anonymousForm.reset();
+            });
+
+            responseForm.addEventListener('submit', event => {
+                event.preventDefault();
+                responseAlert.textContent = '';
+                const selectedPost = document.getElementById(responsePost.value);
+                const crf = document.getElementById('response-crf').value.trim();
+                const responseText = document.getElementById('response-text').value.trim();
+
+                if (!crf || !responseText) {
+                    responseAlert.textContent = 'Informe seu CRF e escreva sua orientação antes de publicar.';
+                    return;
+                }
+
+                const validCrf = /^CRF-\d{2}\/\d{5}$/i.test(crf);
+                if (!validCrf) {
+                    responseAlert.textContent = 'Formato de CRF inválido. Use algo como CRF-08/12345.';
+                    return;
+                }
+
+                const responseList = selectedPost.querySelector('.response-list');
+                const responseCard = document.createElement('div');
+                responseCard.className = 'response-card';
+                responseCard.innerHTML = `
+                    <div class="response-meta">
+                        <span>Psicólogo credenciado</span>
+                        <span>${crf.toUpperCase()}</span>
+                    </div>
+                    <p>${responseText}</p>
+                `;
+                responseList.appendChild(responseCard);
+
+                responseForm.reset();
+                responseAlert.textContent = 'Orientação publicada com sucesso.';
+                setTimeout(() => responseAlert.textContent = '', 4500);
+            });
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

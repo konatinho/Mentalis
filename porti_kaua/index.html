@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Kauã Barbosa — Front-end & UI/UX</title>
+	<meta name="description" content="Portfólio de Kauã Barbosa — Front-end Web Development & UI/UX Design. Código limpo, semântico e interfaces de alta performance.">
+	<link rel="stylesheet" href="style4.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<div class="brand">
+				<h1 class="logo">Kauã Barbosa</h1>
+				<p class="tag">Front-end & UI/UX Designer</p>
+			</div>
+			<nav class="main-nav" aria-label="Navegação principal">
+				<ul>
+					<li><a href="#projects">Projetos</a></li>
+					<li><a href="#about">Sobre</a></li>
+					<li><a href="#contact">Contato</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero">
+			<div class="container hero-inner">
+				<div class="hero-copy">
+					<h2 class="eyebrow">Construindo interfaces puras, modernas e de alta performance</h2>
+					<p class="lead">Sou Kauã Barbosa — uno estética e usabilidade projetadas no Figma com código limpo e semântico (HTML5/CSS3) para transformar problemas em experiências digitais fluidas e eficientes.</p>
+					<div class="hero-ctas">
+							<a class="btn primary action-btn" href="#projects" data-action="hero-projects">Ver Projetos</a>
+						<a class="btn ghost" href="#contact">Contato</a>
+					</div>
+				</div>
+				<aside class="hero-card" aria-hidden="true">
+					<ul>
+						<li><strong>Curso:</strong> Sistemas para Internet (UNIESP)</li>
+						<li><strong>Local:</strong> João Pessoa - PB</li>
+						<li><strong>Ferramentas:</strong> Figma · Trello · Linux</li>
+					</ul>
+				</aside>
+			</div>
+		</section>
+
+		<section id="about" class="about">
+			<div class="container">
+				<h3 class="section-title">Sobre Mim</h3>
+				<p class="about-text">Sou estudante de Sistemas para Internet na UNIESP, entusiasta do ecossistema Linux e apaixonado por criar interfaces que pareçam vivas e fluidas. Busco sempre unir curiosidade técnica com sensibilidade de design para construir experiências acessíveis e performáticas.</p>
+			</div>
+		</section>
+
+		<section class="skills">
+			<div class="container">
+				<h3 class="section-title">Competências</h3>
+				<div class="skills-grid">
+					<article class="skill-card">
+						<h4>Arquitetura Front-end</h4>
+						<p>HTML5 semântico, CSS avançado e JavaScript moderno para estruturas escaláveis e acessíveis.</p>
+					</article>
+					<article class="skill-card">
+						<h4>UI / UX Design</h4>
+						<p>Mapeamento de jornada e prototipagem no Figma com foco em layouts responsivos e interação fluida.</p>
+					</article>
+					<article class="skill-card">
+						<h4>Organização & Produtividade</h4>
+						<p>Gestão de projetos com Trello e desenvolvimento nativo em ambiente Linux para fluxo de trabalho eficiente.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="projects">
+			<div class="container">
+				<h3 class="section-title">Projetos em Destaque</h3>
+				<p class="muted">Exemplos selecionados que mostram a combinação de design e código.</p>
+				<div class="projects-grid">
+					<article class="project-card">
+						<div class="project-media" aria-hidden="true"></div>
+						<div class="project-body">
+							<h4 class="project-title">Mentalis</h4>
+							<p class="project-desc">Site institucional "Mentalis" — criação de layout responsivo, tipografia legível e código semântico focado em performance e acessibilidade.</p>
+							<div class="project-meta">
+								<ul class="tags"><li>HTML</li><li>CSS</li><li>UX</li></ul>
+								<div class="project-actions">
+								<a class="link action-btn" href="../index.html" target="_blank" rel="noopener" data-action="view-project">Ver Site</a>
+								<a class="link action-btn" href="https://github.com/Kauavv" target="_blank" rel="noopener" data-action="github">GitHub</a>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer id="contact" class="site-footer">
+		<div class="container footer-inner">
+			<div class="contact-info">
+				<h4>Contato</h4>
+				<p><a href="mailto:bkaua3180@gmail.com">bkaua3180@gmail.com</a></p>
+				<p><a href="tel:+5583998265781">(83) 99826-5781</a></p>
+				<p>João Pessoa - PB</p>
+			</div>
+			<div class="footer-meta">
+				<p>© <span id="year">2026</span> Kauã Barbosa — Desenvolvedor Front-end & UI/UX</p>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// Atualiza o ano no footer dinamicamente
+		document.getElementById('year').textContent = new Date().getFullYear();
+
+		const actionButtons = document.querySelectorAll('.action-btn');
+		actionButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				button.classList.add('clicked');
+				setTimeout(() => button.classList.remove('clicked'), 180);
+			});
+		});
+	</script>
+</body>
+</html>
+
