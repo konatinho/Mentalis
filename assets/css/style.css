@@ -1,3 +1,6 @@
+/* =========================
+   Theme variables and color palette
+   ========================= */
 :root {
     --bg-main: #141D19;        
     --bg-alt: #1B2621;         
@@ -31,6 +34,9 @@ body {
     overflow-x: hidden;
 }
 
+/* =========================
+   Page visual effects
+   ========================= */
 .page-glow {
     pointer-events: none;
     position: fixed;
@@ -48,6 +54,9 @@ body {
     mix-blend-mode: screen;
 }
 
+/* =========================
+   Layout containers and spacing
+   ========================= */
 .container {
     width: 90%;
     max-width: 1140px;
@@ -69,6 +78,9 @@ body {
 }
 .skip-link:focus { top: 10px; }
 
+/* =========================
+   Header and navigation
+   ========================= */
 .main-header {
     position: sticky;
     top: 0;

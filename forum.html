@@ -9,6 +9,7 @@
 <body>
     <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
+    <!-- Header -->
     <header class="main-header">
         <div class="container header-flex">
             <a href="index.html" class="logo">Mentalis<span>.</span></a>
@@ -26,11 +27,12 @@
         </div>
     </header>
 
+    <!-- Conteúdo Principal -->
     <main id="conteudo-principal">
         <section class="internal-hero">
             <div class="container">
                 <h1>Fórum de Apoio Anônimo</h1>
-                <p>Espaço seguro para relatos anônimos e orientações psicológicas credenciadas. Profissionais informam o CRF antes de publicar uma orientação.</p>
+                <p>Espaço seguro para relatos anônimos e orientações psicológicas credenciadas. Profissionais informam o CRP antes de publicar uma orientação.</p>
             </div>
         </section>
 
@@ -59,7 +61,7 @@
                     <div class="card-header">
                         <span class="badge">Profissional</span>
                         <h2>Publicar orientação</h2>
-                        <p>Somente psicólogos credenciados podem adicionar orientações. Informe seu CRF para validar a publicação.</p>
+                        <p>Somente psicólogos credenciados podem adicionar orientações. Informe seu CRP para validar a publicação.</p>
                     </div>
                     <form id="professional-response-form" class="forum-form">
                         <div class="form-group">
@@ -70,8 +72,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="response-crf">CRF do Psicólogo</label>
-                            <input type="text" id="response-crf" name="crf" placeholder="Ex: CRF-08/12345" autocomplete="off" required>
+                            <label for="response-crp">CRP do Psicólogo</label>
+                            <input type="text" id="response-crp" name="crp" placeholder="Ex: CRP-08/12345" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="response-text">Orientação</label>
@@ -104,7 +106,7 @@
                             <div class="response-card">
                                 <div class="response-meta">
                                     <span>Psicóloga credenciada</span>
-                                    <span>CRF-08/12345</span>
+                                    <span>CRP-08/12345</span>
                                 </div>
                                 <p>Respire devagar e estabeleça um ritual noturno pequeno: desligue dispositivos 30 minutos antes, mantenha o ambiente escuro e anote três coisas que agradecer do dia. Se persistir, busque um atendimento gratuito de CAPS próximo.</p>
                             </div>
@@ -124,7 +126,7 @@
                             <div class="response-card">
                                 <div class="response-meta">
                                     <span>Psicólogo credenciado</span>
-                                    <span>CRF-12/54321</span>
+                                    <span>CRP-12/54321</span>
                                 </div>
                                 <p>Comece com passos muito pequenos: sair por alguns minutos para o jardim, depois ir a uma padaria próxima. Registre sensações e comemore cada avanço. Em seguida, procure apoio psicológico para trabalhar o gatilho do medo.</p>
                             </div>
@@ -135,6 +137,7 @@
         </section>
     </main>
 
+    <!-- Rodapé -->
     <footer class="main-footer">
         <div class="container footer-grid">
             <div>
@@ -204,27 +207,23 @@
                 event.preventDefault();
                 responseAlert.textContent = '';
                 const selectedPost = document.getElementById(responsePost.value);
-                const crf = document.getElementById('response-crf').value.trim();
-                const responseText = document.getElementById('response-text').value.trim();
+                    const crp = document.getElementById('response-crp').value.trim();
+                    const responseText = document.getElementById('response-text').value.trim();
 
-                if (!crf || !responseText) {
-                    responseAlert.textContent = 'Informe seu CRF e escreva sua orientação antes de publicar.';
-                    return;
-                }
+                    if (!crp || !responseText) {
+                        responseAlert.textContent = 'Informe seu CRP e escreva sua orientação antes de publicar.';
+                        return;
+                    }
 
-                const validCrf = /^CRF-\d{2}\/\d{5}$/i.test(crf);
-                if (!validCrf) {
-                    responseAlert.textContent = 'Formato de CRF inválido. Use algo como CRF-08/12345.';
-                    return;
-                }
-
-                const responseList = selectedPost.querySelector('.response-list');
+                    const validCrp = /^CRP-\d{2}\/\d{5}$/i.test(crp);
+                    if (!validCrp) {
+                        responseAlert.textContent = 'Formato de CRP inválido. Use algo como CRP-08/12345.';
                 const responseCard = document.createElement('div');
                 responseCard.className = 'response-card';
                 responseCard.innerHTML = `
                     <div class="response-meta">
                         <span>Psicólogo credenciado</span>
-                        <span>${crf.toUpperCase()}</span>
+                        <span>${crp.toUpperCase()}</span>
                     </div>
                     <p>${responseText}</p>
                 `;

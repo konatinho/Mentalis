@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Page glow cursor effect
     const pageGlow = document.querySelector('.page-glow');
 
         document.addEventListener('mousemove', event => {
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     
     
+    // Mobile navigation toggle logic
     const menuToggle = document.querySelector(".menu-toggle");
     const mainNav = document.querySelector(".main-nav");
         
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     
+    // CAPS information switcher
     const displayBox = document.getElementById("caps-display");
     const listItems = document.querySelectorAll(".list-item");
 
