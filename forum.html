@@ -9,7 +9,7 @@
 <body>
     <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <!-- Header -->
+   
     <header class="main-header">
         <div class="container header-flex">
             <a href="index.html" class="logo">Mentalis<span>.</span></a>
@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
+    
     <main id="conteudo-principal">
         <section class="internal-hero">
             <div class="container">
@@ -137,7 +137,7 @@
         </section>
     </main>
 
-    <!-- Rodapé -->
+   
     <footer class="main-footer">
         <div class="container footer-grid">
             <div>
@@ -164,77 +164,6 @@
 
     <div class="page-glow"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const forumPosts = document.getElementById('forum-posts');
-            const anonymousForm = document.getElementById('anonymous-post-form');
-            const responseForm = document.getElementById('professional-response-form');
-            const responseAlert = document.getElementById('response-alert');
-            const responsePost = document.getElementById('response-post');
-
-            anonymousForm.addEventListener('submit', event => {
-                event.preventDefault();
-                const name = document.getElementById('nome-post').value.trim() || 'Anônimo';
-                const message = document.getElementById('mensagem-post').value.trim();
-                if (!message) return;
-
-                const postId = `post-${Date.now()}`;
-                const article = document.createElement('article');
-                article.className = 'forum-post';
-                article.id = postId;
-                article.innerHTML = `
-                    <div class="post-header">
-                        <div>
-                            <span class="status-pill">${name}</span>
-                            <h3>${message.substring(0, 60)}${message.length > 60 ? '...' : ''}</h3>
-                        </div>
-                        <span class="post-time">Agora</span>
-                    </div>
-                    <p>${message}</p>
-                    <div class="response-list"></div>
-                `;
-                forumPosts.prepend(article);
-
-                const option = document.createElement('option');
-                option.value = postId;
-                option.textContent = message.substring(0, 60) + (message.length > 60 ? '...' : '');
-                responsePost.appendChild(option);
-
-                anonymousForm.reset();
-            });
-
-            responseForm.addEventListener('submit', event => {
-                event.preventDefault();
-                responseAlert.textContent = '';
-                const selectedPost = document.getElementById(responsePost.value);
-                    const crp = document.getElementById('response-crp').value.trim();
-                    const responseText = document.getElementById('response-text').value.trim();
-
-                    if (!crp || !responseText) {
-                        responseAlert.textContent = 'Informe seu CRP e escreva sua orientação antes de publicar.';
-                        return;
-                    }
-
-                    const validCrp = /^CRP-\d{2}\/\d{5}$/i.test(crp);
-                    if (!validCrp) {
-                        responseAlert.textContent = 'Formato de CRP inválido. Use algo como CRP-08/12345.';
-                const responseCard = document.createElement('div');
-                responseCard.className = 'response-card';
-                responseCard.innerHTML = `
-                    <div class="response-meta">
-                        <span>Psicólogo credenciado</span>
-                        <span>${crp.toUpperCase()}</span>
-                    </div>
-                    <p>${responseText}</p>
-                `;
-                responseList.appendChild(responseCard);
-
-                responseForm.reset();
-                responseAlert.textContent = 'Orientação publicada com sucesso.';
-                setTimeout(() => responseAlert.textContent = '', 4500);
-            });
-        });
-    </script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
