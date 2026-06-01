@@ -11,17 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!event.relatedTarget) pageGlow.style.opacity = '0';
     });
   }
-
-  // Mobile navigation toggle logic
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mainNav = document.querySelector('.main-nav');
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-      menuToggle.textContent = mainNav.classList.contains('open') ? '✕' : '☰';
-    });
-  }
-
+ 
   // CAPS information switcher
   const displayBox = document.getElementById('caps-display');
   const listItems = document.querySelectorAll('.list-item');
@@ -48,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
+ 
   // Fórum de Apoio (migrado de forum.html)
   const forumPosts = document.getElementById('forum-posts');
   const anonymousForm = document.getElementById('anonymous-post-form');
@@ -125,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => { if (responseAlert) responseAlert.textContent = ''; }, 4500);
     });
   }
-
+ 
   // Atividades (migrado de atividades.html)
   const breathingCircle = document.getElementById('breathing-circle');
   const breathingStep = document.getElementById('breathing-step');
@@ -194,3 +184,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   console.log("%c[Mentalis] Sistema modular carregado com sucesso. Arquitetura 100% independente.", "color: #61a388; font-weight: bold; font-size: 13px;");
 });
+ 

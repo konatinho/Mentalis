@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicoeducação | Mentalis</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ===== PSICOEDUCAÇÃO — ESTILOS ESPECÍFICOS ===== */
+
+        .disclaimer-banner {
+            background: rgba(197, 138, 111, 0.08);
+            border: 1px solid rgba(197, 138, 111, 0.25);
+            border-left: 4px solid var(--secondary);
+            border-radius: 12px;
+            padding: 20px 28px;
+            margin-bottom: 60px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .disclaimer-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .disclaimer-banner p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .disclaimer-banner strong {
+            color: var(--secondary);
+        }
+
+        /* Grade de transtornos */
+        .disorders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+            margin-bottom: 60px;
+        }
+        @media (min-width: 900px) {
+            .disorders-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .disorder-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 36px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .disorder-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(78, 132, 109, 0.35);
+        }
+
+        .disorder-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .disorder-icon {
+            font-size: 2rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(78, 132, 109, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .disorder-icon svg,
+        .resource-icon svg,
+        .disclaimer-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--primary-hover);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .disclaimer-icon svg {
+            stroke: var(--secondary);
+        }
+        .resource-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+        .disorder-card h3 {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            line-height: 1.3;
+            margin: 0;
+        }
+        .disorder-card p {
+            color: var(--text-muted);
+            font-size: 0.97rem;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .disorder-impacts {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 8px;
+        }
+        .disorder-impacts li {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .disorder-impacts li::before {
+            content: "—";
+            color: var(--primary-hover);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Bloco intro */
+        .psico-intro {
+            max-width: 760px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+        }
+        .psico-intro h2 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+        .psico-intro p {
+            color: var(--text-muted);
+            font-size: 1.07rem;
+            line-height: 1.75;
+        }
+
+        /* CTA final */
+        .psico-cta-section {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 52px 44px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .psico-cta-section h2 {
+            font-family: var(--font-title);
+            font-size: 1.9rem;
+            margin-bottom: 16px;
+        }
+        .psico-cta-section p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 32px auto;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (min-width: 480px) {
+            .cta-actions { flex-direction: row; }
+        }
+
+        /* Recursos de apoio */
+        .resources-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 40px;
+        }
+        @media (min-width: 768px) {
+            .resources-list { grid-template-columns: repeat(2, 1fr); }
+        }
+        .resource-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 22px 26px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .resource-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(78, 132, 109, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .resource-item h4 {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .resource-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin: 0;
+            line-height: 1.55;
+        }
+        .resource-item a {
+            color: var(--primary-hover);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+        .resource-item a:hover { text-decoration: underline; }
+
+        /* Citação */
+        .psico-quote {
+            border-left: 3px solid var(--secondary);
+            margin: 0 0 60px 0;
+            padding: 20px 28px;
+            background: rgba(197, 138, 111, 0.04);
+            border-radius: 0 12px 12px 0;
+        }
+        .psico-quote p {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .psico-cta-section { padding: 36px 24px; }
+            .disorder-card { padding: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">Mentalis<span>.</span></a>
+
+            <input type="checkbox" id="menu-controle" class="menu-checkbox">
+            <label for="menu-controle" class="menu-toggle" aria-label="Abrir Menu">☰</label>
+
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="servicos.html" class="nav-link">Áreas de Apoio</a>
+                <a href="caps.html" class="nav-link">Guia CAPS</a>
+                <a href="psicoeducacao.html" class="nav-link active">Psicoeducação</a>
+                <a href="atividades.html" class="nav-link">Atividades</a>
+                <a href="forum.html" class="nav-link">Fórum</a>
+                <a href="sobre.html" class="nav-link">Nossa Equipe</a>
+                <a href="emergencia.html" class="btn-nav">Ajuda Imediata</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo-principal">
+
+        <!-- HERO -->
+        <section class="internal-hero">
+            <div class="container">
+                <span class="badge">Psicoeducação</span>
+                <h1>O que são Transtornos Mentais?</h1>
+                <p>Informação científica, acolhedora e sem julgamentos sobre como os transtornos mentais afetam o funcionamento humano — e por que buscar suporte profissional é sempre o caminho mais responsável.</p>
+            </div>
+        </section>
+
+        
+        <section class="section-padding">
+            <div class="container">
+
+                
+                <div class="disclaimer-banner" role="note" aria-label="Aviso importante">
+                    <span class="disclaimer-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </span>
+                    <p>
+                        <strong>Aviso importante:</strong> Todo o conteúdo desta seção tem caráter estritamente informativo e psicoeducativo. As informações aqui apresentadas <strong>não constituem diagnóstico clínico</strong>, não substituem a avaliação de um psicólogo ou psiquiatra e não devem ser utilizadas como base para automedicação ou autodiagnóstico. Em caso de sofrimento persistente, procure um profissional de saúde mental habilitado.
+                    </p>
+                </div>
+
+                
+                <div class="psico-intro">
+                    <h2>Compreendendo os Transtornos Mentais</h2>
+                    <p>De acordo com a Organização Mundial da Saúde (OMS), um transtorno mental é caracterizado por uma alteração clinicamente significativa no pensamento, na regulação emocional ou no comportamento de um indivíduo — que, de forma consistente, compromete o funcionamento em áreas importantes da vida como trabalho, relações interpessoais ou autocuidado. Transtornos mentais não são falhas de caráter ou fraqueza de personalidade. Trata-se de condições de saúde com bases neurobiológicas, fatores genéticos, históricos de vida e determinantes sociais amplamente documentados pela ciência.</p>
+                </div>
+
+               
+                <blockquote class="psico-quote">
+                    <p>"Cuidar da saúde mental é tão legítimo quanto cuidar da saúde física. A ciência e os profissionais de saúde estão aqui para isso. O primeiro passo é sempre buscar informação qualificada."</p>
+                </blockquote>
+
+                
+                <div class="disorders-grid">
+
+                    <article class="disorder-card">
+                        <div class="disorder-card-header">
+                            <div class="disorder-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 2a4.5 4.5 0 014.5 4.5v1A4.5 4.5 0 0118.5 12a4.5 4.5 0 01-4.5 4.5h-4A4.5 4.5 0 015.5 12a4.5 4.5 0 014.5-4.5v-1A4.5 4.5 0 019.5 2z"/><path d="M12 7.5V12m0 0l-2 2m2-2l2 2"/></svg>
+                            </div>
+                            <h3>Transtornos de Ansiedade</h3>
+                        </div>
+                        <p>Os transtornos de ansiedade envolvem uma hiperativação persistente do sistema de resposta ao perigo no cérebro — especialmente das regiões da amígdala e do córtex pré-frontal. Esse mecanismo, originalmente adaptativo para situações de ameaça real, passa a ser acionado de forma desproporcional e recorrente, mesmo na ausência de perigo concreto. Os principais tipos incluem o Transtorno de Ansiedade Generalizada (TAG), o Transtorno de Pânico, as Fobias Específicas e o Transtorno de Ansiedade Social.</p>
+                        <p><strong style="color: var(--text-main);">Funções afetadas clinicamente:</strong></p>
+                        <ul class="disorder-impacts" aria-label="Funções comprometidas pelos transtornos de ansiedade">
+                            <li>Concentração e memória de trabalho</li>
+                            <li>Regulação do ciclo de sono</li>
+                            <li>Tomada de decisão e planejamento</li>
+                            <li>Funcionamento do sistema nervoso autônomo</li>
+                        </ul>
+                    </article>
+
+                    <article class="disorder-card">
+                        <div class="disorder-card-header">
+                            <div class="disorder-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6 9 4 13 4 16a8 8 0 0016 0c0-3-2-7-8-14z"/></svg>
+                            </div>
+                            <h3>Transtorno Depressivo Maior</h3>
+                        </div>
+                        <p>A depressão clínica envolve alterações neurobiológicas nos sistemas de neurotransmissão — particularmente nos circuitos dopaminérgico (responsável pela motivação e recompensa) e serotoninérgico (relacionado ao humor e ao sono). Segundo a OMS, a depressão é uma das principais causas de incapacidade funcional no mundo, afetando mais de 280 milhões de pessoas globalmente.</p>
+                        <p><strong style="color: var(--text-main);">Funções afetadas clinicamente:</strong></p>
+                        <ul class="disorder-impacts" aria-label="Funções comprometidas pelo transtorno depressivo maior">
+                            <li>Capacidade de experimentar prazer ou interesse (anedonia)</li>
+                            <li>Padrões de sono e apetite</li>
+                            <li>Velocidade de processamento cognitivo e concentração</li>
+                            <li>Percepção sobre si mesmo, o mundo e o futuro</li>
+                        </ul>
+                    </article>
+
+                    <article class="disorder-card">
+                        <div class="disorder-card-header">
+                            <div class="disorder-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+                            </div>
+                            <h3>Transtorno Obsessivo-Compulsivo (TOC)</h3>
+                        </div>
+                        <p>O TOC é caracterizado por um padrão disfuncional de processamento de ameaças no circuito cortico-estriado-talâmico do cérebro. Esse circuito, responsável por filtrar pensamentos intrusivos e sinalizar quando uma ação está "completa", passa a funcionar em loop — gerando pensamentos recorrentes e indesejados (obsessões) e comportamentos repetitivos realizados para reduzir o desconforto gerado por eles (compulsões).</p>
+                        <p><strong style="color: var(--text-main);">Funções afetadas clinicamente:</strong></p>
+                        <ul class="disorder-impacts" aria-label="Funções comprometidas pelo TOC">
+                            <li>Flexibilidade cognitiva e tolerância à incerteza</li>
+                            <li>Tempo disponível para atividades cotidianas</li>
+                            <li>Qualidade das relações interpessoais</li>
+                            <li>Desempenho profissional e acadêmico</li>
+                        </ul>
+                    </article>
+
+                    <article class="disorder-card">
+                        <div class="disorder-card-header">
+                            <div class="disorder-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            </div>
+                            <h3>Transtorno de Estresse Pós-Traumático (TEPT)</h3>
+                        </div>
+                        <p>O TEPT pode se desenvolver após exposição a eventos de alto impacto psicológico. Neurologicamente, o trauma altera o funcionamento do hipocampo (que processa e contextualiza memórias) e da amígdala (que sinaliza o perigo). Memórias traumáticas são armazenadas de forma fragmentada e podem ser reativadas com alta intensidade emocional por estímulos sensoriais variados.</p>
+                        <p><strong style="color: var(--text-main);">Funções afetadas clinicamente:</strong></p>
+                        <ul class="disorder-impacts" aria-label="Funções comprometidas pelo TEPT">
+                            <li>Regulação emocional e resposta ao estresse</li>
+                            <li>Qualidade do sono e capacidade de relaxar</li>
+                            <li>Integração de memórias e construção narrativa de si</li>
+                            <li>Engajamento em relações e ambientes sociais</li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                
+                <div class="psico-cta-section">
+                    <h2>Por que buscar ajuda profissional?</h2>
+                    <p>O sofrimento emocional persistente — aquele que compromete rotinas, relações e bem-estar ao longo do tempo — é um sinal que merece atenção clínica especializada. Os transtornos mentais respondem de forma significativa a intervenções baseadas em evidências. Procurar ajuda não é fraqueza; é responsabilidade consigo mesmo.</p>
+
+                    <div class="resources-list">
+                        <div class="resource-item">
+                            <div class="resource-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Psicólogo</h4>
+                                <p>Realiza avaliação, diagnóstico psicológico e conduz a psicoterapia com base em abordagens científicas.</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 20H4a2 2 0 01-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 011.66.9l.82 1.2a2 2 0 001.66.9H20a2 2 0 012 2v2"/><circle cx="17" cy="17" r="5"/><path d="M17 14v3h3"/></svg>
+                            </div>
+                            <div>
+                                <h4>Psiquiatra</h4>
+                                <p>Médico especialista em saúde mental; avalia e prescreve tratamento farmacológico quando clinicamente indicado.</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><line x1="12" y1="7" x2="12" y2="7"/><line x1="10" y1="9" x2="14" y2="9"/><line x1="12" y1="7" x2="12" y2="11"/></svg>
+                            </div>
+                            <div>
+                                <h4>CAPS — Atendimento Público Gratuito</h4>
+                                <p>Atendimento integral e multidisciplinar pelo SUS. <a href="caps.html">Consulte o nosso Guia CAPS →</a></p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <h4>CVV — Apoio Emocional 24h</h4>
+                                <p>Suporte emocional gratuito e sigiloso a qualquer hora. Ligue <strong style="color: var(--secondary);">188</strong> ou acesse <a href="emergencia.html">Ajuda Imediata →</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-actions" style="margin-top: 36px;">
+                        <a href="caps.html" class="btn btn-primary">Conhecer o Guia CAPS</a>
+                        <a href="emergencia.html" class="btn btn-secondary">Ajuda Imediata</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>Mentalis</h3>
+                <p>Projeto acadêmico focado em utilidade pública, saúde coletiva e inclusão digital por meio de código acessível.</p>
+            </div>
+            <div>
+                <h3>Links Úteis</h3>
+                <nav aria-label="Links do Rodapé">
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Áreas de Apoio</a></li>
+                        <li><a href="caps.html">Guia CAPS</a></li>
+                        <li><a href="psicoeducacao.html">Psicoeducação</a></li>
+                        <li><a href="sobre.html">Nossa Equipe</a></li>
+                        <li><a href="forum.html">Fórum</a></li>
+                        <li><a href="atividades.html">Atividades</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Agência Mentalis. Todos os direitos reservados. Feito com fins educacionais.</p>
+        </div>
+    </footer>
+
+    <div class="page-glow"></div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

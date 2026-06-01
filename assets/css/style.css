@@ -119,7 +119,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-link {
@@ -129,6 +129,7 @@ body {
     font-size: 1rem;
     transition: color 0.3s;
     padding: 5px 0;
+    border-bottom: 2px solid transparent;
 }
 .nav-link:hover, .nav-link.active {
     color: var(--text-main);
