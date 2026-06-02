@@ -96,7 +96,7 @@ Projeto desenvolvido como atividade prática da disciplina de **Front-End**, pro
 ## 👥 Autores
 
 **Wenderson Carlos**
-**Diego**
+**Diego Santos**
 **Kauã Barbosa**
 
 ---
